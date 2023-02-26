@@ -26,6 +26,20 @@ Scanner sc = new Scanner(System.in);
         }
     }
 
+    public void emailValidation(){
+        System.out.println("Enter your Email Id: ");
+        String email=sc.nextLine();
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]+([.][0-9a-zA-Z]+)*@[a-zA-Z]+.[a-z]{2,3}([.][a-z]{2,3})*$");
+        Matcher matcher = pattern.matcher(email);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("The email id is valid");
+        }else {
+            System.out.println("The email id is invalid");
+            emailValidation();
+        }
+    }
+
 
 }
 
@@ -34,5 +48,6 @@ Scanner sc = new Scanner(System.in);
     ValidationRegistration validate = new ValidationRegistration();
     validate.firstNameValidation();
     validate.lastNameValidation();
+    validate.emailValidation();
      }
     }
