@@ -27,7 +27,7 @@ Scanner sc = new Scanner(System.in);
     }
 
     public void emailValidation(){
-        System.out.println("Enter your Email Id: ");
+        System.out.print("Enter your Email Id: ");
         String email=sc.nextLine();
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9]+([.][0-9a-zA-Z]+)*@[a-zA-Z]+.[a-z]{2,3}([.][a-z]{2,3})*$");
         Matcher matcher = pattern.matcher(email);
@@ -40,7 +40,18 @@ Scanner sc = new Scanner(System.in);
         }
     }
 
-
+    public void mobileValidation(){
+        System.out.print("Enter you mobile number: ");
+        String mobileno =  sc.nextLine();
+        Pattern pattern = Pattern.compile("^[1-9]{2}\\s[0-9]{10}$");
+        Matcher matcher = pattern.matcher(mobileno);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("Mobile number is valid");
+        }else {
+            System.out.println("Mobile number is invalid");
+        }
+    }
 }
 
  class UserRegistrationMain{
@@ -49,5 +60,8 @@ Scanner sc = new Scanner(System.in);
     validate.firstNameValidation();
     validate.lastNameValidation();
     validate.emailValidation();
+    validate.mobileValidation();
+
      }
     }
+
