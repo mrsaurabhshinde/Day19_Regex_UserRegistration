@@ -50,8 +50,24 @@ Scanner sc = new Scanner(System.in);
             System.out.println("Mobile number is valid");
         }else {
             System.out.println("Mobile number is invalid");
+             mobileValidation();
         }
     }
+
+    public void passwordValidationRule1(){
+        System.out.print("Enter a password: ");
+        String password =  sc.nextLine();
+        Pattern pattern = Pattern.compile("^[a-zA-z1-9]{8,}$");
+        Matcher matcher = pattern.matcher(password);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("your password is valid");
+        }else {
+            System.out.println("your password is invalid, pls give correct format");
+            passwordValidationRule1();
+        }
+    }
+
 }
 
  class UserRegistrationMain{
@@ -61,6 +77,7 @@ Scanner sc = new Scanner(System.in);
     validate.lastNameValidation();
     validate.emailValidation();
     validate.mobileValidation();
+    validate.passwordValidationRule1();
 
      }
     }
