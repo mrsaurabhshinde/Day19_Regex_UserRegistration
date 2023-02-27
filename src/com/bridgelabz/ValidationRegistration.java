@@ -82,6 +82,19 @@ Scanner sc = new Scanner(System.in);
         }
     }
 
+    public void passwordValidationRule3(){
+        System.out.print("Enter a password: ");
+        String password =  sc.nextLine();
+        Pattern pattern = Pattern.compile("^[A-Z]{1}+[a-zA-z1-9]{6,}[1-9]{1}$");
+        Matcher matcher = pattern.matcher(password);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("your password is valid");
+        }else {
+            System.out.println("your password is invalid, pls give correct format");
+            passwordValidationRule3();
+        }
+    }
 }
 
  class UserRegistrationMain{
@@ -93,6 +106,7 @@ Scanner sc = new Scanner(System.in);
     validate.mobileValidation();
     validate.passwordValidationRule1();
     validate.passwordValidationRule2();
+    validate.passwordValidationRule3();
 
      }
     }
