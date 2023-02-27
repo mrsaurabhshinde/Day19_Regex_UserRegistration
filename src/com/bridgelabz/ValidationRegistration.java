@@ -109,9 +109,22 @@ Scanner sc = new Scanner(System.in);
             passwordValidationRule4();
         }
     }
+
+    public void emailValidationAll(){
+        System.out.print("Enter your email id: ");
+        String emailall = sc.nextLine();
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?");
+        Matcher matcher = pattern.matcher(emailall);
+        boolean matches = matcher.find();
+        if(matches){
+            System.out.println("The Email is valid for with all validation ");
+        }else{
+            System.out.println("The Email is invalid enter proper format of email");
+        }
+    }
 }
 
- class UserRegistrationMain{
+ class UserRegistrationMain{  //
      public static void main(String[] args) {
     ValidationRegistration validate = new ValidationRegistration();
     validate.firstNameValidation();
@@ -122,6 +135,7 @@ Scanner sc = new Scanner(System.in);
     validate.passwordValidationRule2();
     validate.passwordValidationRule3();
     validate.passwordValidationRule4();
+    validate.emailValidationAll();
      }
     }
 
